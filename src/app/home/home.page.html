@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      記事一覧
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <!--routerLink 画面遷移用、segueみたいなもの-->
+    <!--routerLink {{p.ID}}は遷移先に持っていくページID-->
+  <ion-card *ngFor="let p of posts; trackBy: trackByFn" routerLink="/home/{{p.ID}}">
+
+    <!--
+    <ion-card-header>
+      <ion-card-subtitle>
+        {{p.date | date: "yyyy年MM月dd日"}}
+      </ion-card-subtitle>
+      <ion-card-title>{{p.title}}</ion-card-title>
+    </ion-card-header>
+    -->
+    <app-wp-head title="{{p.title}}" date="{{p.date}}"></app-wp-head>
+  </ion-card>
+</ion-content>
